@@ -78,9 +78,6 @@ int main() {
     std::cout << std::setw(24) << "SP Instructions (FLOPS)" << " | "
               << std::setw(18) << std_metrics.sp_instructions << " | "
               << std::setw(18) << adaa_metrics.sp_instructions << "\n";
-    std::cout << std::setw(24) << "DP Instructions (FLOPS)" << " | "
-              << std::setw(18) << std_metrics.dp_instructions << " | "
-              << std::setw(18) << adaa_metrics.dp_instructions << "\n";
     std::cout << std::setw(24) << "Total Instructions" << " | " << std::setw(18)
               << std_metrics.total_instructions << " | " << std::setw(18)
               << adaa_metrics.total_instructions << "\n";
