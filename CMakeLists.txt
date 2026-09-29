@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Eigen3 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(PAPI REQUIRED papi)
 
 add_executable(audio_processor
     main.cpp
@@ -13,5 +15,5 @@ add_executable(audio_processor
 
 target_link_libraries(audio_processor PRIVATE Eigen3::Eigen)
 
-target_include_directories(audio_processor PRIVATE /usr/local/include)
-target_link_libraries(audio_processor PRIVATE /usr/local/lib/libpapi.a pthread dl)
+target_include_directories(audio_processor PRIVATE ${PAPI_INCLUDE_DIRS})
+target_link_libraries(audio_processor PRIVATE ${PAPI_LIBRARIES} pthread dl)
