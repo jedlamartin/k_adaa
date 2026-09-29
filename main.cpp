@@ -1,3 +1,5 @@
+#include <papi.h>
+
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -11,6 +13,11 @@
 #endif
 
 int main() {
+    if(PAPI_library_init(PAPI_VER_CURRENT) != PAPI_VER_CURRENT) {
+        std::cerr << "PAPI library initialization error!\n";
+        return 1;
+    }
+
     // Configuration parameters
     constexpr float fs = 48000.f;       // Sample rate matching constants.h
     constexpr float freq = 1000.f;      // Sine wave frequency (1 kHz)
