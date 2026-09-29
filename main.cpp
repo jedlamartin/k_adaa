@@ -70,19 +70,25 @@ int main() {
 
     std::cout
         << "\n================ PAPI PERFORMANCE COMPARISON ================\n";
-    std::cout << std::setw(20) << "Metric" << " | " << std::setw(18)
+    std::cout << std::setw(24) << "Metric" << " | " << std::setw(18)
               << "Standard Mode" << " | " << std::setw(18) << "ADAA Mode"
               << "\n";
-    std::cout
-        << "-------------------------------------------------------------\n";
-    std::cout << std::setw(20) << "Total Instructions" << " | " << std::setw(18)
-              << std_metrics.fp_instructions << " | " << std::setw(18)
-              << adaa_metrics.fp_instructions << "\n";
-    std::cout << std::setw(20) << "Total Cycles" << "    | " << std::setw(18)
+    std::cout << "-------------------------------------------------------------"
+                 "----\n";
+    std::cout << std::setw(24) << "SP Instructions (FLOPS)" << " | "
+              << std::setw(18) << std_metrics.sp_instructions << " | "
+              << std::setw(18) << adaa_metrics.sp_instructions << "\n";
+    std::cout << std::setw(24) << "DP Instructions (FLOPS)" << " | "
+              << std::setw(18) << std_metrics.dp_instructions << " | "
+              << std::setw(18) << adaa_metrics.dp_instructions << "\n";
+    std::cout << std::setw(24) << "Total Instructions" << " | " << std::setw(18)
+              << std_metrics.total_instructions << " | " << std::setw(18)
+              << adaa_metrics.total_instructions << "\n";
+    std::cout << std::setw(24) << "Total Cycles" << " | " << std::setw(18)
               << std_metrics.total_cycles << " | " << std::setw(18)
               << adaa_metrics.total_cycles << "\n";
-    std::cout
-        << "=============================================================\n";
+    std::cout << "============================================================="
+                 "====\n";
 
     return 0;
 

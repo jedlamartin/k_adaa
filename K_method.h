@@ -14,7 +14,9 @@ public:
     void process_ADAA(std::vector<float>& samples);
 
     struct PAPIMetrics {
-        long long fp_instructions = 0;
+        long long sp_instructions = 0;
+        long long dp_instructions = 0;
+        long long total_instructions = 0;
         long long total_cycles = 0;
     };
 
