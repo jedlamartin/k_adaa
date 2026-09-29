@@ -92,7 +92,7 @@ void K_method::process_Standard(std::vector<float>& samples) {
     long long values[2] = {0, 0};
 
     if(PAPI_create_eventset(&EventSet) == PAPI_OK) {
-        PAPI_add_event(EventSet, PAPI_TOT_INS);
+        PAPI_add_event(EventSet, PAPI_SP_OPS);
         PAPI_add_event(EventSet, PAPI_TOT_CYC);
         PAPI_start(EventSet);
     }
@@ -127,7 +127,7 @@ void K_method::process_ADAA(std::vector<float>& samples) {
     long long values[2] = {0, 0};
 
     if(PAPI_create_eventset(&EventSet) == PAPI_OK) {
-        PAPI_add_event(EventSet, PAPI_TOT_INS);
+        PAPI_add_event(EventSet, PAPI_SP_OPS);
         PAPI_add_event(EventSet, PAPI_TOT_CYC);
         PAPI_start(EventSet);
     }
