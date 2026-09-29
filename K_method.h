@@ -15,7 +15,6 @@ public:
 
     struct PAPIMetrics {
         long long sp_instructions = 0;
-        long long dp_instructions = 0;
         long long total_instructions = 0;
         long long total_cycles = 0;
     };

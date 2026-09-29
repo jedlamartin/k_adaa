@@ -89,11 +89,10 @@ K_method::K_method(float fs) {
 
 void K_method::process_Standard(std::vector<float>& samples) {
     int EventSet = PAPI_NULL;
-    long long values[2] = {0, 0};
+    long long values[3] = {0, 0, 0};
 
     if(PAPI_create_eventset(&EventSet) == PAPI_OK) {
         PAPI_add_event(EventSet, PAPI_SP_OPS);
-        PAPI_add_event(EventSet, PAPI_DP_OPS);
         PAPI_add_event(EventSet, PAPI_TOT_INS);
         PAPI_add_event(EventSet, PAPI_TOT_CYC);
         PAPI_start(EventSet);
@@ -118,9 +117,8 @@ void K_method::process_Standard(std::vector<float>& samples) {
 
     if(PAPI_stop(EventSet, values) == PAPI_OK) {
         standard_metrics.sp_instructions = values[0];
-        standard_metrics.dp_instructions = values[1];
-        standard_metrics.total_instructions = values[2];
-        standard_metrics.total_cycles = values[3];
+        standard_metrics.total_instructions = values[1];
+        standard_metrics.total_cycles = values[2];
     }
     PAPI_cleanup_eventset(EventSet);
     PAPI_destroy_eventset(&EventSet);
@@ -128,11 +126,10 @@ void K_method::process_Standard(std::vector<float>& samples) {
 
 void K_method::process_ADAA(std::vector<float>& samples) {
     int EventSet = PAPI_NULL;
-    long long values[4] = {0, 0, 0, 0};
+    long long values[3] = {0, 0, 0};
 
     if(PAPI_create_eventset(&EventSet) == PAPI_OK) {
         PAPI_add_event(EventSet, PAPI_SP_OPS);
-        PAPI_add_event(EventSet, PAPI_DP_OPS);
         PAPI_add_event(EventSet, PAPI_TOT_INS);
         PAPI_add_event(EventSet, PAPI_TOT_CYC);
         PAPI_start(EventSet);
@@ -175,9 +172,8 @@ void K_method::process_ADAA(std::vector<float>& samples) {
 
     if(PAPI_stop(EventSet, values) == PAPI_OK) {
         adaa_metrics.sp_instructions = values[0];
-        adaa_metrics.dp_instructions = values[1];
-        adaa_metrics.total_instructions = values[2];
-        adaa_metrics.total_cycles = values[3];
+        adaa_metrics.total_instructions = values[1];
+        adaa_metrics.total_cycles = values[2];
     }
     PAPI_cleanup_eventset(EventSet);
     PAPI_destroy_eventset(&EventSet);
