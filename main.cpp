@@ -68,7 +68,7 @@ int main() {
               << "\n";
     std::cout
         << "-------------------------------------------------------------\n";
-    std::cout << std::setw(20) << "FP Instructions" << " | " << std::setw(18)
+    std::cout << std::setw(20) << "Total Instructions" << " | " << std::setw(18)
               << std_metrics.fp_instructions << " | " << std::setw(18)
               << adaa_metrics.fp_instructions << "\n";
     std::cout << std::setw(20) << "Total Cycles" << "    | " << std::setw(18)
