@@ -6,8 +6,7 @@
 using Eigen::Matrix;
 
 constexpr float fs = 48.e3;
-constexpr size_t upsample_standard = 8;
-constexpr size_t upsample_adaa = 2;
+constexpr size_t upsample = 8;
 constexpr float dur = 1.f;
 constexpr float R1 = 4700.f;      // 4.7k
 constexpr float R2 = 51000.f;     // 51k
