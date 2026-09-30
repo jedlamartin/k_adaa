@@ -23,8 +23,8 @@ public:
     PAPIMetrics getADAAMetrics() const { return adaa_metrics; }
 
 private:
-    Oversampler<float, 4, 256> oversampler_standard;
-    Oversampler<float, 4, 256> oversampler_adaa;
+    Oversampler<float, upsample_standard, 256> oversampler_standard;
+    Oversampler<float, upsample_adaa, 256> oversampler_adaa;
 
     Matrix<float, 2, 1> G;
     Matrix<float, 2, 2> H;
